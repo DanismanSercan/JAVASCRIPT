@@ -1,35 +1,28 @@
-// Your task is to create a function that does four basic mathematical operations.
-// The function should take three arguments - operation(string/char), value1(number), value2(number).
-// The function should return result of numbers after applying the chosen operation.
-// Examples(Operator, value1, value2) --> output
-// ('+', 4, 7) --> 11
-// ('-', 15, 18) --> -3
-// ('*', 5, 5) --> 25
-// ('/', 49, 7) --> 7
+
+// You will be given an array a and a value x. 
+// All you need to do is check whether the provided array contains the value.
+// Array can contain numbers or strings. X can be either.
+// Return true if the array contains the value, false if not.
+// Examples-->
+// check([66, 101], 66) // output -->  true
+// check([101, 45, 75, 105, 99, 107], 107) // output -->  true
+// check(['t', 'e', 's', 't'], 'e') // output -->  true
+// check(['what', 'a', 'great', 'kata'], 'kat') // output -->  false
 
 
-function operate(operator, value1, value2) {
-  // Hangi işlemi yapacağımızı belirlemek için bir switch yapısı kullanın
-  switch (operator) {
-    case '+':
-      // Değerleri topla
-      return value1 + value2;
-    case '-':
-      // Değerleri çıkar
-      return value1 - value2;
-    case '*':
-      // Değerleri çarp
-      return value1 * value2;
-    case '/':
-      // Değerleri böl
-      return value1 / value2;
-    default:
-      // Geçersiz bir operatör sağlanırsa, NaN döndür
-      return NaN;
+function check(arr, val) {
+  // Dizinin her elemanını döndür
+  for (let i = 0; i < arr.length; i++) {
+    // Şu anki elemanın val'e eşit olup olmadığını kontrol et
+    if (arr[i] === val) {
+      // Eğer eşitse, true döndür
+      return true;
+    }
   }
+  // Hiçbir eşleşme bulunamazsa, false döndür
+  return false;
 }
 
-console.log(operate('+', 4, 7)); // çıktı: 11
-console.log(operate('-', 15, 18)); // çıktı: -3
-console.log(operate('*', 5, 5)); // çıktı: 25
-console.log(operate('/', 49, 7)); // çıktı: 7
+console.log(check([66, 101], 66)); // çıktı: true
+console.log(check([101, 45, 75, 105, 99, 107], 107)); // çıktı: true
+console.log(check(['what', 'a', 'great', 'kata'], 'kat')); // çıktı: false
